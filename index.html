@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAP Situaciones de Enseñanza - Ciclo Básico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ALTO CONTRASTE PARA PROYECTOR 2000 LUMENS - LUZ DE DÍA */
+        :root {
+            --bg-color: #FFFFFF;
+            --text-color: #000000;
+            --accent-color: #D32F2F; /* Rojo muy contrastante */
+            --accent-secondary: #1976D2; /* Azul fuerte */
+            --box-border: #000000;
+            --box-bg: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        #app {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 1.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.5s ease-in-out;
+            pointer-events: none;
+            background-color: var(--bg-color);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .box {
+            background-color: var(--box-bg);
+            border: 5px solid var(--box-border);
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 5px 5px 0px var(--text-color);
+        }
+
+        .box-full {
+            grid-column: span 2;
+        }
+
+        .box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent-secondary);
+            font-weight: 900;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--box-border);
+            padding-bottom: 0.3rem;
+        }
+
+        .box p, .box li {
+            font-size: 1.4rem;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .box ul {
+            padding-left: 2rem;
+        }
+        
+        .box li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 900;
+        }
+
+        .controls {
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #EEEEEE;
+            border-top: 5px solid var(--text-color);
+        }
+
+        .nav-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        button {
+            background: #FFFFFF;
+            border: 3px solid var(--text-color);
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 900;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0px var(--text-color);
+        }
+
+        button:hover {
+            background: var(--text-color);
+            color: #FFFFFF;
+            box-shadow: 0px 0px 0px var(--text-color);
+            transform: translate(3px, 3px);
+        }
+
+        .progress-indicator {
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="slide-container">
+            <!-- Slide 1 -->
+            <div class="slide active" id="slide-0">
+                <div>
+                    <h1>El Punto de Partida</h1>
+                    <h2>Despertar la curiosidad y plantear el problema</h2>
+                </div>
+                <div class="content-grid">
+                    <div class="box">
+                        <h3>La "Tecnificación"</h3>
+                        <p>¿Qué hacíamos antes nosotros que ahora hace la máquina?</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>No enseñamos a fabricar el artefacto.</li>
+                            <li>Enseñamos cómo el ser humano <strong>delega funciones</strong> (ejecución y control).</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>Objetivo del NAP</h3>
+                        <p>Trasciende la simple manipulación de herramientas.</p>
+                        <p style="margin-top: 0.5rem;">Fomentar la <span class="highlight">curiosidad y la indagación constante</span> frente al mundo artificial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" id="slide-1">
+                <div>
+                    <h1>Los Tres Pilares</h1>
+                    <h2>Dimensiones inseparables de la enseñanza tecnológica</h2>
+                </div>
+                <div class="content-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                    <div class="box">
+                        <h3 style="font-size: 1.3rem;">1. Procesos Tecnológicos</h3>
+                        <p style="font-size: 1.2rem;">Transformación de Materia, Energía e Información.</p>
+                        <p style="font-size: 1.1rem; margin-top: 0.5rem; color: #555;">Ej: Desde un invernadero hasta un WhatsApp.</p>
+                    </div>
+                    <div class="box">
+                        <h3 style="font-size: 1.3rem;">2. Medios Técnicos</h3>
+                        <p style="font-size: 1.2rem;">Abrir la "caja negra". Análisis de sistemas.</p>
+                        <p style="font-size: 1.1rem; margin-top: 0.5rem; color: #555;">Resolución de problemas y diseño de proyectos.</p>
+                    </div>
+                    <div class="box">
+                        <h3 style="font-size: 1.3rem;">3. Impacto Sociocultural</h3>
+                        <p style="font-size: 1.2rem;">La tecnología forma redes y sistemas.</p>
+                        <p style="font-size: 1.1rem; margin-top: 0.5rem; color: #555;">Debates sobre consumismo y riesgo socioambiental.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide" id="slide-2">
+                <div>
+                    <h1>Reflexión Final</h1>
+                    <h2>Síntesis y el propósito de la Educación Tecnológica</h2>
+                </div>
+                <div class="content-grid">
+                    <div class="box box-full" style="text-align: center; border-color: var(--accent-color);">
+                        <h3 style="border: none; font-size: 2rem; color: var(--accent-color);">La Gran Pregunta</h3>
+                        <p style="font-size: 1.8rem; line-height: 1.2; padding: 0.5rem;">"¿Estamos preparando a nuestros alumnos solo para usar tecnología, o para cuestionarla y diseñarla?"</p>
+                    </div>
+                    <div class="box box-full">
+                        <h3>Ciudadanía Crítica</h3>
+                        <ul>
+                            <li>Dar herramientas para <strong>comprender y transformar el mundo</strong>.</li>
+                            <li>Generar confianza para evaluar las <strong>consecuencias sociotécnicas</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="progress-indicator" id="progressText">1 / 3</div>
+            <div class="nav-btns">
+                <button id="prevBtn">Anterior</button>
+                <button id="nextBtn">Siguiente</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const progressText = document.getElementById('progressText');
+        let currentSlide = 0;
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            progressText.innerText = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextBtn.click();
+            if (e.key === 'ArrowLeft') prevBtn.click();
+        });
+    </script>
+</body>
+</html>
